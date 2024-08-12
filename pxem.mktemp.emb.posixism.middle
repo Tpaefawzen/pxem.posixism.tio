@@ -1,0 +1,28 @@
+# PUT YOUR PXEM SOURCE HERE
+#
+# because the two variables shall be argument for "printf '%b'",  the syntax
+# shall be: literal letter for non-escaped letter including "%", and 
+# one of '\\' or '\ooo' where ooo is 1-3 (or 4 in MacOS X) for such byte.
+# The FILENAME must be just basename
+FILENAME='.w._._.n .o.n .o.a'
+CONTENT=
+
+CONFIG='
+BEGIN{
+# configurations are as follows:
+   # bc(1) is used for arithmetic if 1; awk(1) is used otherwise
+   USE_BC=1;
+
+   # if set to 0, the .x ... .a works as:
+   # while ( stack.length < 2 OR ( fst = pop(); snd = pop(); fst < snd) ) { ... }
+   # if set to 1, the .x ... .a works as:
+   # while ( stack.length >= 2 AND ( fst = pop(); snd = pop(); fst < snd ) ) { ... }
+   BREAK_LOOP_WHEN_INSUFFICIENT=0;
+
+   # i.e. every .w, .x, .y, .z must match .a
+   ABORT_BROKEN_LOOP=1;
+
+   # for ._ command; if set to 0 then treat non-integer thing shall be zero 
+   ABORT_ILLEGAL_INTEGER=1;
+# end of configurable things
+}'

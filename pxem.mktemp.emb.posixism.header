@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# pxem.mktemp.emb.posixism. in-code Pxem interpreter.
+#
+# Features.
+# - Compatible with nk.'s intended spefification
+# - Byte-unit character
+# - No slash nor null for filename
+# - Stream-oriented I/O
+#
+# Copyright (C) Tpaefawzen <GitHub: Tpaefawzen>
+# source: https://github.com/Tpaefawzen/pxem.posixism
+# Final update. 2023.05.02
+# License. dual licensed under GNU GPL version 3.0, the ISC license, the X11 license, and/or the Apache 2.0 license.
+# apply whichever you prefer
+
+# POSIXism boilerplate
+set -eu
+umask 0077 # not 0022; as for mktemp
+export LC_ALL=C
+type getconf >/dev/null 2>&1 &&
+type command >/dev/null 2>&1 &&
+export PATH="$(command -p getconf PATH 2>/dev/null)${PATH+:}${PATH-}"
+export UNIX_STD=2003 # for HP-UX
+export POSIXLY_CORRECT=1 # for GNU
