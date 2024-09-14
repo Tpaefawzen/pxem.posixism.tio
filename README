@@ -1,2 +1,14 @@
 Thank you for reaching to my repository for Pxem implementation in shell script with POSIX utilities.
 
+## Usage
+Copy *.header, *.middle, *.footer to
+the TIO, run as ksh/bash/dash/zsh language.
+
+The *.middle comment describes what to do.
+
+Byte-unit I/O.
+
+## Bugs
+Please let me know if you found a behavior
+that does not comply with original Pxem specs
+or pxemi.7z or rpxem; I may document it on demand.
